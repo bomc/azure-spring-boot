@@ -57,10 +57,3 @@ steps:
       jdkVersionOption: '1.17'
       mavenOptions: '-Dspring-boot.build-image.imageName=docker.io/$(imageRepository):$(tag)'
 
-  - task: Docker@2
-    displayName: 'Push Docker Image to Dockerhub'
-    inputs:
-      containerRegistry: $(containerRegistryServiceConnection)
-      repository: $(imageRepository)
-      command: 'push'
-      tags: $(tag)
